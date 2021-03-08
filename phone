@@ -19,7 +19,9 @@ else
 	done
 
 	allargs+=")"
-	echo $allargs
+	
+	egrep -i $allargs mydata | ./display.awk
+
 fi
 
 

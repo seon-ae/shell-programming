@@ -1,4 +1,4 @@
-awk 'BEGIN{FS="|"}
+awk 'BEGIN{FS="|";}
 {print "--------------->";}
 {print "name : "$1;}
 {print "address : "$2;}
