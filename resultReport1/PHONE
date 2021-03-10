@@ -1,0 +1,47 @@
+args="$@"
+
+if [ $# -lt 1 ]
+then 
+	echo -e "Usage: phone searchfor [...searchfor] \n(You didn't tell me what you want to search for.)"
+
+else	
+	allargs="("
+	for var in $args; do
+		if [ "$var" = "$1" ]
+		then 
+			allargs+="$1"
+		else
+			allargs+="|"
+			allargs+=$var
+		fi
+	done
+	allargs+=")"
+
+	egrep -i $var  mydata > output
+	touch input
+
+	for var in $args
+	do
+		cp -rf output input
+		egrep -i $var input  > output
+	done
+	
+	
+	res="("
+	for var in $args; do
+		if [ "$var" = "$1" ]
+		then 
+			res+="$1"
+		else
+			res+="|"
+			res+=$var
+		fi
+	done
+	res+=")"
+
+	egrep -i $res output | ./display.awk
+		
+
+fi
+
+

@@ -1,0 +1,23 @@
+echo "working directory:"
+read -a input_path
+
+function convert_case(){
+	cd $*
+	for filename in *
+		do
+			new=`echo ${filename} | tr [:lower:] [:upper:]`
+			mv $filename $new
+		done
+}
+
+#if there's no input path
+if [ "${input_path[0]}" == "" ]
+then
+	cur_path=`pwd -P`
+	convert_case $cur_path
+
+#absolute path is entered
+else
+	convert_case $input_path
+fi
+
