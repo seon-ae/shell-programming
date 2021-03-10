@@ -2,7 +2,7 @@ echo "working directory:"
 read -a input_path
 
 function convert_case(){
-	cd $*
+	cd $* 
 	for filename in *
 		do
 			new=`echo ${filename} | tr [:lower:] [:upper:]`
