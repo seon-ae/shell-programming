@@ -7,6 +7,7 @@ set nu
 set autoindent
 set cindent
 set showmatch
+set number
 set smartindent
 set ruler
 set fileencodings=utf8,euc-kr
